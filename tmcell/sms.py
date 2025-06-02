@@ -39,7 +39,7 @@ def send_sms(session, headers, LOGIN, PASSWORD):
             "__RequestVerificationToken": csrf_token,
             "Sms.DestinationAddress": phone,
             "Sms.Text": text,
-            "Sms.UseTranslit": "false",
+            "Sms.UseTranslit": "true",
             "apply": "Ýollamaly"
         }
         resp = session.post(url, data=payload, headers=headers)
