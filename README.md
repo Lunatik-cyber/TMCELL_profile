@@ -23,7 +23,7 @@
 
 1. **Клонируйте репозиторий:**
    ```sh
-   git clone https://github.com/yourusername/tmcell-cli-cabinet.git
+   git clone https://github.com/Lunatik-cyber/TMCELL_profile.git
    cd tmcell-cli-cabinet
    ```
 2. **Установите зависимости:**
@@ -123,4 +123,4 @@ MIT License
 
 ## Вопросы и предложения
 
-Пишите [issues](https://github.com/yourusername/tmcell-cli-cabinet/issues) или форкайте проект!
+Пишите [issues](https://github.com/Lunatik-cyber/TMCELL_profile/issues) или форкайте проект!
