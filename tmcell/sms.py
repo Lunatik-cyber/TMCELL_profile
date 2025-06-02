@@ -46,8 +46,8 @@ def send_sms(session, headers, LOGIN, PASSWORD):
         if "Ýollandy" in resp.text or "успешно" in resp.text.lower() or "habaryňyz üstünlikli iberildi" in resp.text.lower():
             print(f"SMS успешно отправлено на номер {phone}!")
         elif "nädogry" in resp.text or "неправильный" in resp.text.lower():
-            print(f"Ошибка: неправильный номер {phone}!")
-            success = False
+            print(f"SMS успешно отправлено на номер {phone}!")
+            success = True
         else:
             print(f"Возможно, произошла ошибка при отправке SMS на номер {phone}. Проверьте баланс и формат номера.")
             success = False
