@@ -1,8 +1,8 @@
 from auth.login import login
 from bs4 import BeautifulSoup
 
-def send_sms(session, headers):
-    csrf_token = login(session, headers, None, None)
+def send_sms(session, headers, LOGIN, PASSWORD):
+    csrf_token = login(session, headers, LOGIN, PASSWORD)
     if not csrf_token:
         print("Не удалось получить CSRF токен для отправки SMS.")
         return False

@@ -1,4 +1,4 @@
-def manage_services(session, headers, services):
+def manage_services(session, headers, services, user_login, user_password):
     def print_services_menu():
         print("=== УСЛУГИ ===")
         print(" [1] Подключённые услуги")
@@ -45,11 +45,11 @@ def manage_services(session, headers, services):
         if mode == "connect":
             from tmcell.api import login as relogin
             from tmcell.api import connect_service
-            connect_service(session, headers, service_id)
+            connect_service(session, headers, service_id, user_login, user_password)
         else:
             from tmcell.api import login as relogin
             from tmcell.api import disconnect_service
-            disconnect_service(session, headers, service_id)
+            disconnect_service(session, headers, service_id, user_login, user_password)
         input("Нажмите Enter чтобы вернуться ...")
 
     while True:

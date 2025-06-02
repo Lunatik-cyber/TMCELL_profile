@@ -194,9 +194,9 @@ def parse_available_packets(session, headers, is_gift=False, balance=0.0):
                 })
     return packets
 
-def buy_packet(session, headers, packet_id):
+def buy_packet(session, headers, packet_id, user_login, user_password):
     from auth.login import login
-    csrf_token = login(session, headers, None, None)
+    csrf_token = login(session, headers, user_login, user_password)
     if not csrf_token:
         print("Не удалось получить CSRF токен для покупки пакета.")
         return False
@@ -216,9 +216,9 @@ def buy_packet(session, headers, packet_id):
         print("Ошибка при покупке пакета!")
         return False
 
-def gift_packet(session, headers, packet_id, packet_name):
+def gift_packet(session, headers, packet_id, packet_name, user_login, user_password):
     from auth.login import login
-    csrf_token = login(session, headers, None, None)
+    csrf_token = login(session, headers, user_login, user_password)
     if not csrf_token:
         print("Не удалось получить CSRF токен для подарка пакета.")
         return False

@@ -50,9 +50,9 @@ def main():
             print_packets(packets, show_all=False)
             input("Нажмите Enter чтобы вернуться в меню...")
         elif choice == "3":
-            manage_services(session, headers, services)
+            manage_services(session, headers, services, LOGIN, PASSWORD)
         elif choice == "4":
-            handle_tariff_switch(session, headers)
+            handle_tariff_switch(session, headers, LOGIN, PASSWORD)
         elif choice == "5":
             packets_for_buy = parse_available_packets(session, headers, is_gift=False, balance=balance)
             print_available_packets(packets_for_buy, is_gift=False, balance=balance)
@@ -69,7 +69,7 @@ def main():
                 continue
             packet_id = packets_for_buy[num-1]["packet_id"]
             from tmcell.api import buy_packet
-            buy_packet(session, headers, packet_id)
+            buy_packet(session, headers, packet_id, LOGIN, PASSWORD)
             input("Нажмите Enter чтобы вернуться в меню...")
         elif choice == "6":
             packets_for_gift = parse_available_packets(session, headers, is_gift=True, balance=balance)
@@ -87,14 +87,14 @@ def main():
                 continue
             packet = packets_for_gift[num-1]
             from tmcell.api import gift_packet
-            gift_packet(session, headers, packet["packet_id"], packet["packet_name"])
+            gift_packet(session, headers, packet["packet_id"], packet["packet_name"], LOGIN, PASSWORD)
             input("Нажмите Enter чтобы вернуться в меню...")
         elif choice == "7":
             handle_payments_history(session, headers)
         elif choice == "8":
             handle_transfers_history(session, headers)
         elif choice == "9":
-            send_sms(session, headers)
+            send_sms(session, headers, LOGIN, PASSWORD)
             input("Нажмите Enter чтобы вернуться в меню...")
         elif choice == "10":
             choose_account()

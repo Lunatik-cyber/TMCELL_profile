@@ -1,6 +1,6 @@
 from tmcell.api import parse_tariffs, buy_packet
 
-def handle_tariff_switch(session, headers):
+def handle_tariff_switch(session, headers, user_login, user_password):
     current_tariff, tariffs = parse_tariffs(session, headers)
     print(f"Ваш текущий тариф: {current_tariff}")
     print("--- Доступные для перехода тарифы ---")
@@ -21,7 +21,7 @@ def handle_tariff_switch(session, headers):
         return
     tariff_id = tariffs[num-1]["tariff_id"]
     from auth.login import login
-    csrf_token = login(session, headers, None, None)
+    csrf_token = login(session, headers, user_login, user_password)
     if not csrf_token:
         print("Не удалось получить новый CSRF токен для переключения тарифа.")
         return False
